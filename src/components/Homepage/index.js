@@ -13,7 +13,7 @@ const HomePageHeading = ({ loadHomePageFeatures }) => {
   );
 };
 
-export default function Homepage() {
+export default function Homepage({ navbarRef }) {
   const [index, setIndex] = useState(0);
   const ref = useRef();
 
