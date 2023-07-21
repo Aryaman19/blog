@@ -5,6 +5,12 @@
  */
 
 /* You can override the default Infima variables here. */
+
+@font-face {
+  font-family: "Anurati";
+  src: url("@site/static/font/Anurati-Regular.otf");
+}
+
 :root {
   --ifm-color-primary: #2e8555;
   --ifm-color-primary-dark: #29784c;
@@ -34,4 +40,12 @@
   display: flex;
   flex-direction: unset;
   justify-content: center !important;
+}
+
+.show-navbar {
+  display: flex !important;
+}
+
+.hide-navbar {
+  display: none !important;
 }
