@@ -4,6 +4,7 @@ import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import Homepage from "@site/src/components/Homepage";
+import BrowserOnly from "@docusaurus/BrowserOnly";
 
 import styles from "./index.module.css";
 

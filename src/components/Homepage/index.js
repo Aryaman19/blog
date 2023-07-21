@@ -1,19 +1,8 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import styles from "./styles.module.css";
 import HomePageFeatures from "../HomepageFeatures";
 
-const HomePageHeading = ({ setIndex }) => {
-  const loadHomePageFeatures = () => {
-    // begin transition
-    const element_1 = document.getElementById("transition-container-1");
-    element_1.classList.add(styles.transition_active);
-    element_1.classList.add(styles.transition_hide);
-
-    setTimeout(() => {
-      setIndex(1);
-    }, 500);
-  };
-
+const HomePageHeading = ({ loadHomePageFeatures }) => {
   return (
     <div className={styles.features_container}>
       <div className={styles.features_heading}>EXPLORE</div>
@@ -26,16 +15,28 @@ const HomePageHeading = ({ setIndex }) => {
 
 export default function Homepage() {
   const [index, setIndex] = useState(0);
+  const ref = useRef();
 
   const loadHomePage = () => {
     // begin transition
-    const element_1 = document.getElementById("transition-container-1");
+    //const element_1 = document.getElementById("transition-container-1");
 
-    element_1.classList.remove(styles.transition_hide);
-    element_1.classList.remove(styles.transition_active);
+    ref.current.classList.remove(styles.transition_hide);
+    ref.current.classList.remove(styles.transition_active);
 
     setTimeout(() => {
       setIndex(0);
+    }, 500);
+  };
+
+  const loadHomePageFeatures = () => {
+    // begin transition
+    //const element_1 = document.getElementById("transition-container-1");
+    ref.current.classList.add(styles.transition_active);
+    ref.current.classList.add(styles.transition_hide);
+
+    setTimeout(() => {
+      setIndex(1);
     }, 500);
   };
 
@@ -48,11 +49,12 @@ export default function Homepage() {
         <div></div>
       </div>
       <div
+        ref={ref}
         id="transition-container-1"
         className={styles.transition_container_1}
       ></div>
       {index === 0 ? (
-        <HomePageHeading setIndex={setIndex} />
+        <HomePageHeading loadHomePageFeatures={loadHomePageFeatures} />
       ) : (
         // <HomePageFeatures setIndex={setIndex} />
         <HomePageFeatures loadHomePage={loadHomePage} />
