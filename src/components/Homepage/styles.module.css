@@ -70,7 +70,7 @@
 .aurora_container div {
   position: absolute;
   border-radius: 50%;
-  animation: aurora 100s infinite;
+  animation: aurora 60s infinite;
 }
 
 @keyframes aurora {
